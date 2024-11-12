@@ -1,0 +1,23 @@
+﻿@model CldvFinalTest.Models.Order
+
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<h1>Delete Order</h1>
+
+<p>Are you sure you want to delete this order?</p>
+
+<div>
+    <h4>Order Details</h4>
+    <p><strong>User Name:</strong> @Model.User_Name</p>
+    <p><strong>Product ID:</strong> @Model.Product_ID</p>
+    <p><strong>Order Date:</strong> @Model.Order_Date</p>
+    <p><strong>Order Location:</strong> @Model.Order_Location</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Order_Id" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

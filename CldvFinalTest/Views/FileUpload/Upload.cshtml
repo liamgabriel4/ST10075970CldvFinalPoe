@@ -1,0 +1,58 @@
+﻿@model List<CldvFinalTest.Models.FileModel>
+
+@{
+    ViewBag.Title = "File Upload";
+}
+
+<div class="container">
+    <h2>File Upload</h2>
+
+    @* Display success or error message *@
+    <p class="text-success">@TempData["Message"]</p>
+
+    <!-- File upload form -->
+    <form asp-action="Upload" asp-controller="FileUpload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">Choose a file to upload:</label>
+            <input type="file" name="file" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Upload</button>
+    </form>
+
+    <hr />
+
+    @* Display list of uploaded files *@
+    <h3>Uploaded Files</h3>
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-bordered table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Size</th>
+                    <th>Last Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var file in Model)
+                {
+                    <tr>
+                        <td>@file.Name</td>
+                        <td>@file.DisplaySize</td>
+                        <td>@file.LastModified?.ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No files have been uploaded yet.</p>
+    }
+</div>
+
+@* //Digital TechJoint (2022). ASP.NET Identity - User Registration, Login and Log-out. [online] YouTube. Available at: https://www.youtube.com/watch?v=ghzvSROMo_M [Accessed 5 Nov. 2024].
+    //Digital TechJoint (2022). ASP.NET MVC - How To Implement Role Based Authorization. YouTube. Available at: https://www.youtube.com/watch?v=qvsWwwq2ynE [Accessed 5 Nov. 2024].
+    Mrzygłód, K., 2022. Azure for Developers. 2nd ed. August: [Meeta Rajani]
+*@

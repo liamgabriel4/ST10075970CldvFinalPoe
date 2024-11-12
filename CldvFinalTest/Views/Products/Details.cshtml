@@ -1,0 +1,26 @@
+﻿@model CldvFinalTest.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>Product Details</h1>
+
+<div>
+    <h4>@Model.Product_Name</h4>
+    <div>
+        <strong>Description:</strong> @Model.Description
+    </div>
+    <div>
+        <strong>Location:</strong> @Model.Location
+    </div>
+    <div>
+        <strong>Image:</strong><br />
+        <img src="@Model.ImageUrl" alt="@Model.Product_Name" width="200" />
+    </div>
+</div>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Product_Id" class="btn btn-secondary">Edit</a>
+    <a asp-action="Index" class="btn btn-primary">Back to List</a>
+</p>

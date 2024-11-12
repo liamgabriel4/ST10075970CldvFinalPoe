@@ -1,0 +1,82 @@
+﻿@model IEnumerable<CldvFinalTest.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Add New Product</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Image</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Product_Name</td>
+                <td>@item.Description</td>
+                <td>@item.Location</td>
+                <td><img src="@item.ImageUrl" alt="@item.Product_Name" width="100" /></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Product_Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Product_Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Product_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@* //Digital TechJoint (2022). ASP.NET Identity - User Registration, Login and Log-out. [online] YouTube. Available at: https://www.youtube.com/watch?v=ghzvSROMo_M [Accessed 5 Nov. 2024].
+    //Digital TechJoint (2022). ASP.NET MVC - How To Implement Role Based Authorization. YouTube. Available at: https://www.youtube.com/watch?v=qvsWwwq2ynE [Accessed 5 Nov. 2024].
+    Mrzygłód, K., 2022. Azure for Developers. 2nd ed. August: [Meeta Rajani]
+*@
+
+
+@*                 @model IEnumerable<CldvFinalTest.Models.Product>
+
+@{
+    ViewData["Title"] = "Products List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Location</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Product_Name</td>
+                <td>@product.Description</td>
+                <td><img src="@product.ImageUrl" alt="@product.Product_Name" width="100" /></td>
+                <td>@product.Location</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.Product_Id">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@product.Product_Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@product.Product_Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ *@
