@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CldvFinalTest.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<h1>Products</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Image</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Product_Name</td>
+                <td>@item.Description</td>
+                <td>@item.Location</td>
+                <td><img src="@item.ImageUrl" alt="@item.Product_Name" width="100" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@* //Digital TechJoint (2022). ASP.NET Identity - User Registration, Login and Log-out. [online] YouTube. Available at: https://www.youtube.com/watch?v=ghzvSROMo_M [Accessed 5 Nov. 2024].
+    //Digital TechJoint (2022). ASP.NET MVC - How To Implement Role Based Authorization. YouTube. Available at: https://www.youtube.com/watch?v=qvsWwwq2ynE [Accessed 5 Nov. 2024].
+    Mrzygłód, K., 2022. Azure for Developers. 2nd ed. August: [Meeta Rajani]
+*@
